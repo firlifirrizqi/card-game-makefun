@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartu Purnama — Duel Kartu di Bawah Bulan</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <!-- Title screen -->
+  <div id="title-screen">
+    <div class="moon">🌕</div>
+    <h1 class="game-title">KARTU<br>PURNAMA</h1>
+    <p class="game-tagline">Duel kartu di bawah bulan — empat faksi, satu pemenang.</p>
+    <div class="title-buttons">
+      <button id="start-btn" class="big-btn">⚔ MULAI DUEL</button>
+      <button id="how-btn" class="ghost-btn">Cara Main</button>
+    </div>
+    <div id="how-panel" class="how-panel" hidden>
+      <h2>Cara Main</h2>
+      <ul>
+        <li><b>Tujuan:</b> kurangi nyawa Sang Gerhana dari 20 menjadi 0.</li>
+        <li><b>Mana:</b> tiap giliran manamu bertambah 1 (maks 10) dan kamu gambar 1 kartu.</li>
+        <li><b>Main kartu:</b> klik kartu di tanganmu (biaya ≤ mana). Makhluk baru tidak bisa menyerang di giliran yang sama.</li>
+        <li><b>Menyerang:</b> klik makhlukmu yang siap, lalu klik makhluk lawan atau Sang Gerhana. Makhluk saling melukai.</li>
+        <li><b>Resonansi:</b> kartu kedua dari faksi yang sama dalam satu giliran jadi lebih kuat (+1/+1 atau efek +2).</li>
+        <li><b>Faksi:</b> Purnama (emas ●), Api (merah ▲, +1 saat menyerang), Air (biru 💧, penyembuh), Daun (hijau 🍃, tangguh).</li>
+        <li><b>Tombol:</b> 1–7 pilih kartu, Enter akhiri giliran, Esc batal, M suara.</li>
+      </ul>
+    </div>
+    <p class="title-foot">Game kartu original — dibuat untuk bounty Make.fun</p>
+  </div>
+
+  <!-- Table -->
+  <div id="table" hidden>
+    <div class="top-bar">
+      <div class="brand">🌕 KARTU PURNAMA</div>
+      <div id="turn-label" class="turn-label"></div>
+      <button id="mute-btn" class="small-btn">🔊 Suara: Hidup</button>
+    </div>
+
+    <div class="side-row ai-row">
+      <div id="ai-hero" class="hero-slot"></div>
+      <div class="board-col">
+        <div id="ai-board" class="board-row"></div>
+        <div class="hand-label">Tangan Sang Gerhana</div>
+        <div id="ai-hand" class="hand-row ai-hand"></div>
+      </div>
+    </div>
+
+    <div class="mid-row">
+      <div id="log" class="log"></div>
+      <div class="mid-center">
+        <div id="hint" class="hint"></div>
+        <button id="end-turn" class="big-btn end-btn">⏎ Akhiri Giliran</button>
+      </div>
+    </div>
+
+    <div class="side-row player-row">
+      <div id="player-hero" class="hero-slot"></div>
+      <div class="board-col">
+        <div id="player-board" class="board-row"></div>
+        <div class="hand-label">Tanganmu — klik kartu untuk memainkan</div>
+        <div id="player-hand" class="hand-row"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Win / loss screen, filled by render.js -->
+  <div id="end-screen" class="end-screen" hidden></div>
+
+  <div id="banner"></div>
+  <div id="fx-layer"></div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
